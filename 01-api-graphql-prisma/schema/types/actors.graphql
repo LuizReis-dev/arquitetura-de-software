@@ -1,0 +1,22 @@
+type Actor {
+  id: Int!
+  name: String!
+  birthdate: String!
+  movies: [Movie!]!
+}
+
+type Query {
+  actors: [Actor!]!
+  actor(id: Int!): Actor
+}
+
+input ActorInput {
+  name: String!
+  birthdate: String!
+}
+
+type Mutation {
+  createActor(input: ActorInput!): Actor!
+  updateActor(id: Int!, input: ActorInput!): Actor!
+  deleteActor(id: Int!): Boolean!
+}

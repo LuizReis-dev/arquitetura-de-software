@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package genre;
+
+import "google/protobuf/empty.proto";
+
+message Genre {
+  int64 id = 1;
+  string name = 2;
+}
+
+message CreateGenreRequest {
+  string name = 1;
+}
+
+message UpdateGenreRequest {
+  int64 id = 1;
+  string name = 2;
+}
+
+message GetGenreRequest {
+  int64 id = 1;
+}
+
+message ListGenresResponse {
+  repeated Genre genres = 1;
+}
+
+service GenreService {
+  rpc ListGenres(google.protobuf.Empty) returns (ListGenresResponse);
+  rpc GetGenre(GetGenreRequest) returns (Genre);
+  rpc CreateGenre(CreateGenreRequest) returns (Genre);
+  rpc UpdateGenre(UpdateGenreRequest) returns (Genre);
+  rpc DeleteGenre(GetGenreRequest) returns (google.protobuf.Empty);
+}

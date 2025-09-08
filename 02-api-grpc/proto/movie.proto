@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package movie;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+message Movie {
+  int64 id = 1;
+  string title = 2;
+  int32 release_year = 3;
+  int64 genre_id = 4;
+  repeated int64 actor_ids = 5;
+}
+
+message CreateMovieRequest {
+  string title = 1;
+  int32 release_year = 2;
+  int64 genre_id = 3;
+  repeated int64 actor_ids = 4;
+}
+
+message UpdateMovieRequest {
+  int64 id = 1;
+  string title = 2;
+  int32 release_year = 3;
+  int64 genre_id = 4;
+  repeated int64 actor_ids = 5;
+}
+
+message GetMovieRequest {
+  int64 id = 1;
+}
+
+message ListMoviesResponse {
+  repeated Movie movies = 1;
+}
+
+message ListMovieActorsRequest {
+  int64 movie_id = 1;
+}
+
+message ListMovieActorsResponse {
+  repeated int64 actor_ids = 1;
+}
+
+message AddActorToMovieRequest {
+  int64 movie_id = 1;
+  int64 actor_id = 2;
+}
+
+service MovieService {
+  rpc ListMovies(google.protobuf.Empty) returns (ListMoviesResponse);
+  rpc GetMovie(GetMovieRequest) returns (Movie);
+  rpc CreateMovie(CreateMovieRequest) returns (Movie);
+  rpc UpdateMovie(UpdateMovieRequest) returns (Movie);
+  rpc DeleteMovie(GetMovieRequest) returns (google.protobuf.Empty);
+  rpc ListMovieActors(ListMovieActorsRequest) returns (ListMovieActorsResponse);
+  rpc AddActorToMovie(AddActorToMovieRequest) returns (google.protobuf.Empty);
+}

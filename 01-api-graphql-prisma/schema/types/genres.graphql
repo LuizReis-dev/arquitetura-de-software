@@ -1,0 +1,18 @@
+type Genre {
+  id: Int!
+  name: String!
+  movies: [Movie!]!
+}
+
+type Query {
+  genres: [Genre!]!
+  genre(id: Int!): Genre
+}
+
+input GenreInput {
+  name: String!
+}
+
+type Mutation {
+  createGenre(input: GenreInput!): Genre!
+}
