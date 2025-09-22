@@ -1,0 +1,27 @@
+{
+  "name": "product-normalizer",
+  "version": "1.0.0",
+  "description": "Normaliza arquivos de produtos de fornecedores para formato padrão.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "adapter",
+    "csv",
+    "xml",
+    "json",
+    "product"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "fast-xml-parser": "^4.5.3",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  }
+}
