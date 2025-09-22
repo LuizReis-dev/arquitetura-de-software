@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# TypeScript build output
+dist/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+
+# Compiled JS
+*.js
+
+# VSCode
+.vscode/
+
+.github
