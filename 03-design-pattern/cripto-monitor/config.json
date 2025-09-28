@@ -1,0 +1,12 @@
+{
+  "defaultCoin": "bitcoin",
+  "secundsToFetch": 60,
+  "threshold": {
+    "compra": 30000,
+    "venda": 35000
+  },
+  "variation": {
+    "percentual": 1,
+    "minutos": 10
+  }
+}
